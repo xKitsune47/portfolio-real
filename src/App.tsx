@@ -14,13 +14,13 @@ const App: React.FC = () => {
     canvas.width = 64;
     canvas.height = 64;
     const ctx = canvas.getContext("2d");
-    ctx.font = "48px serif";
-    ctx.fillText(emoji, 0, 48);
+    ctx!.font = "48px serif";
+    ctx!.fillText(emoji, 0, 48);
     const faviconUrl = canvas.toDataURL();
 
-    let link = document.querySelector("link[rel~='icon']");
+    let link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
     if (!link) {
-      link = document.createElement("link");
+      link = document.createElement("link") as HTMLLinkElement;
       link.rel = "icon";
       document.head.appendChild(link);
     }

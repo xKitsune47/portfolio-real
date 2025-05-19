@@ -1,6 +1,5 @@
 import React from "react";
 import ProjectCard from "../ProjectCard";
-import { projects } from "../../../public/projects-data.js";
 import Divider from "../Divider.js";
 
 export interface Project {
@@ -14,7 +13,16 @@ export interface Project {
   image?: string;
 }
 
-const projectData: Project[] = projects;
+const projectData: Project[] = [
+  {
+    id: 1,
+    title: "Portfolio",
+    description: "Portfolio site you're currently browsing through. FOX!",
+    tags: ["React", "TypeScript", "TailwindCSS", "HTML5"],
+    codeUrl: "https://kitsune-dev.me",
+    image: "",
+  },
+];
 
 const Projects: React.FC = () => {
   return (
