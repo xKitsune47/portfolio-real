@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "./components/sections/Navbar";
 import Hero from "./components/sections/Hero";
 import About from "./components/sections/About";
@@ -8,6 +8,27 @@ import Contact from "./components/sections/Contact";
 import Footer from "./components/sections/Footer";
 
 const App: React.FC = () => {
+  useEffect(() => {
+    const emoji = "🦊"; // Tutaj wpisz swoje emoji
+    const canvas = document.createElement("canvas");
+    canvas.width = 64;
+    canvas.height = 64;
+    const ctx = canvas.getContext("2d");
+    ctx.font = "48px serif";
+    ctx.fillText(emoji, 0, 48);
+    const faviconUrl = canvas.toDataURL();
+
+    let link = document.querySelector("link[rel~='icon']");
+    if (!link) {
+      link = document.createElement("link");
+      link.rel = "icon";
+      document.head.appendChild(link);
+    }
+    link.href = faviconUrl;
+
+    document.title = "kitsune-dev.me";
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
