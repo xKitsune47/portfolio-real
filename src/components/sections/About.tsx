@@ -22,8 +22,8 @@ const About: React.FC = () => {
               solutions to complex problems.
             </p>
             <p>
-              Inspired by elegance and adaptability—much like a fox in the world
-              of technology—I focus on writing clean, efficient code
+              Inspired by elegance and adaptability, I focus on writing clean
+              and efficient code
             </p>
           </div>
         </div>
