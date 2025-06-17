@@ -7,6 +7,7 @@ const ProjectCard: React.FC<Project> = ({
   imageUrl,
   tags,
   codeUrl,
+  role,
 }) => {
   return (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl transform hover:scale-[1.02]">
@@ -19,6 +20,7 @@ const ProjectCard: React.FC<Project> = ({
       )}
       <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-2xl font-semibold text-orange-600 mb-3">{title}</h3>
+        <h4 className="font-semibold text-orange-800 mb-3">{role}</h4>
         <p className="text-gray-700/80 text-sm mb-4 flex-grow">{description}</p>
         <div className="mb-4">
           {tags.map((tag) => (
