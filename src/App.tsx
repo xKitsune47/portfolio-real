@@ -25,8 +25,6 @@ const App: React.FC = () => {
       document.head.appendChild(link);
     }
     link.href = faviconUrl;
-
-    document.title = "kitsune-dev.me";
   }, []);
 
   return (
