@@ -32,6 +32,10 @@ const skillsData: Skill[] = [
     name: "Redux",
     image: "/assets/skills/redux.svg",
   },
+  {
+    name: "Mendix",
+    image: "/assets/skills/Mendix.png",
+  },
 ];
 
 const Skills: React.FC = () => {
