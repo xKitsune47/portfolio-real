@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
         <button
           onClick={scrollToProjects}
           className="bg-orange-500 text-white font-semibold py-3 px-8 rounded-full text-lg hover:bg-orange-600 transform hover:scale-105 transition-all duration-300 shadow-xl focus:outline-none focus:ring-4 focus:ring-orange-300 cursor-pointer">
-          See what I'm doing
+          Check my projects
         </button>
       </div>
     </section>

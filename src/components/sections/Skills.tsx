@@ -19,7 +19,8 @@ const skillsData: Skill[] = [
     name: "React",
     image: "/assets/skills/react.png",
   },
-  { name: "Git", image: "/assets/skills/github-mark.png" },
+  { name: "Next.js", image: "/assets/skills/nextjs.svg" },
+  { name: "Git", image: "/assets/skills/git.svg" },
   {
     name: "Figma",
     image: "/assets/skills/figma.png",
@@ -48,7 +49,12 @@ const Skills: React.FC = () => {
         <Divider />
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-9 gap-6">
           {skillsData.map((skill) => (
-            <img src={skill.image} className="w-12 m-auto" alt={skill.name} />
+            <img
+              src={skill.image}
+              className="w-12 m-auto"
+              alt={skill.name}
+              key={skill.name}
+            />
           ))}
         </div>
       </div>

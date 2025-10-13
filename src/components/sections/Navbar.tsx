@@ -21,6 +21,7 @@ const Navbar: React.FC = () => {
               <NavLink href="#about">About me</NavLink>
               <NavLink href="#skills">Skills</NavLink>
               <NavLink href="#projects">Projects</NavLink>
+              <NavLink href="#honors-awards">Awards</NavLink>
               <NavLink href="#contact">Contact</NavLink>
             </ul>
           </div>

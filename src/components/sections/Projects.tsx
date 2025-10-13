@@ -19,7 +19,7 @@ const projectData: Project[] = [
     id: 1,
     title: "Packt",
     description:
-      "Mobile app for managing group travels. I was the frontend dev responsible for creating UI and lead developer for managing app's states and API connections",
+      "Aggregator app with chat, calendar, expense tracking (with export to PDF functionality) and documents sharing for managing your trips. I was the frontend dev responsible for creating UI and lead developer for managing app's states and API connections",
     tags: ["React Native", "JavaScript", "Redux", "CSS"],
     codeUrl: "",
     image: "",

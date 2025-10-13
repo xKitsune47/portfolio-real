@@ -4,12 +4,13 @@ import Hero from "./components/sections/Hero";
 import About from "./components/sections/About";
 import Skills from "./components/sections/Skills";
 import Projects from "./components/sections/Projects";
+import HonorsAndAwards from "./components/sections/HonorsAndAwards";
 import Contact from "./components/sections/Contact";
 import Footer from "./components/sections/Footer";
 
 const App: React.FC = () => {
   useEffect(() => {
-    const emoji = "🦊"; // Tutaj wpisz swoje emoji
+    const emoji = "🦊";
     const canvas = document.createElement("canvas");
     canvas.width = 64;
     canvas.height = 64;
@@ -35,6 +36,7 @@ const App: React.FC = () => {
         <About />
         <Skills />
         <Projects />
+        <HonorsAndAwards />
         <Contact />
       </main>
       <Footer />

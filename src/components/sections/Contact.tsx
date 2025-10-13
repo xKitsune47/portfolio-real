@@ -53,6 +53,7 @@ const Contact: React.FC = () => {
               text={contact.text}
               bgColorClass={contact.background}
               image={contact.image}
+              key={contact.text}
             />
           ))}
         </div>
