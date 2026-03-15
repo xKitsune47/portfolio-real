@@ -1,14 +1,16 @@
 interface NavLinkProps {
   href: string;
   children: React.ReactNode;
+  onClick?: () => void;
 }
 
-const NavLink: React.FC<NavLinkProps> = ({ href, children }) => {
+const NavLink: React.FC<NavLinkProps> = ({ href, children, onClick }) => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id.substring(1));
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
+    onClick?.();
   };
 
   return (
