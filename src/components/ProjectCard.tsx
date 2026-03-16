@@ -8,6 +8,7 @@ const ProjectCard: React.FC<Project> = ({
   tags,
   codeUrl,
   role,
+  siteUrl,
 }) => {
   return (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl transform hover:scale-[1.02]">
@@ -39,6 +40,15 @@ const ProjectCard: React.FC<Project> = ({
               rel="noopener noreferrer"
               className="flex-1 text-center border-2 border-orange-500 text-orange-500 py-2 px-4 rounded-lg hover:bg-orange-500 hover:text-white transition-colors duration-300 font-medium">
               Repository
+            </a>
+          )}
+          {siteUrl && (
+            <a
+              href={codeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 text-center border-2 border-orange-500 text-orange-500 py-2 px-4 rounded-lg hover:bg-orange-500 hover:text-white transition-colors duration-300 font-medium">
+              Live preview
             </a>
           )}
         </div>

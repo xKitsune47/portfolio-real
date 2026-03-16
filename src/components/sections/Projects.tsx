@@ -10,6 +10,7 @@ export interface Project {
   tags: string[];
   liveUrl?: string;
   codeUrl?: string;
+  siteUrl?: string;
   image?: string;
   role: string;
 }
@@ -37,15 +38,26 @@ const projectData: Project[] = [
   },
   {
     id: 3,
-    title: "Portfolio",
-    description: "Portfolio site you're currently browsing through",
-    tags: ["React", "TypeScript", "TailwindCSS", "HTML5"],
-    codeUrl: "https://github.com/xKitsune47/portfolio-real",
+    title: "Kitsune's Links",
+    description:
+      "Fullstack app made with Next.js, TailwindCSS, MongoDB and NextAuth. The app is a linktree clone, has Google and Github authentication provided by NextAuth. You can preview available fonts and color schemes for the links page before registering, add a profile picture and a description for your profile.",
+    tags: ["Next.js", "TypeScript", "TailwindCSS", "MongoDB"],
+    codeUrl: "https://github.com/xKitsune47/carrd-clone",
+    siteUrl: "https://links.kitsune-dev.me",
     image: "",
     role: "Sole developer",
   },
   {
     id: 4,
+    title: "Portfolio",
+    description: "Portfolio site you're currently browsing through",
+    tags: ["React", "TypeScript", "TailwindCSS"],
+    codeUrl: "https://github.com/xKitsune47/portfolio-real",
+    image: "",
+    role: "Sole developer",
+  },
+  {
+    id: 5,
     title: "IoT Temperature and humidity sensor",
     description:
       "IoT Temperature and humidity sensor created with Raspberry Pi 4B and DHT11. Raspberry Pi was responsible for reading data and sending it to local server. Local server has backend created with Flask that sends data to frontend via websockets to be displayed in real time",
@@ -63,22 +75,12 @@ const projectData: Project[] = [
     role: "Sole developer",
   },
   {
-    id: 5,
+    id: 6,
     title: "Project site with a menu for the restaurant",
     description:
       "Independently developed a React.js application during an online course, using Redux for state management, React Router for navigation, and TailwindCSS for styling",
     tags: ["React", "JavaScript", "TailwindCSS", "Redux", "React Router"],
     codeUrl: "https://github.com/xKitsune47/react-learning-22",
-    image: "",
-    role: "Sole developer",
-  },
-  {
-    id: 6,
-    title: "Weather forecast using publicly available weather API",
-    description:
-      "Designed and implemented a responsive front-end application from scratch using React.js and custom CSS, with state handled through built-in React reducers, as part of a university project",
-    tags: ["React", "JavaScript", "CSS", "Built-in Reducers", "React Router"],
-    codeUrl: "https://github.com/xKitsune47/front-end-project",
     image: "",
     role: "Sole developer",
   },

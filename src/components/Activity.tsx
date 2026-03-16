@@ -16,16 +16,15 @@ const Activity = () => {
   useEffect(() => {
     const get = async () => {
       const res = await fetch(
-        "https://api.lanyard.rest/v1/users/363372616335097858"
+        "https://api.lanyard.rest/v1/users/363372616335097858",
       );
       const data = await res.json();
 
       if (data) {
         setActivities(
-          data?.data?.activities?.filter((act: Activity) => act.id !== "custom")
-        );
-        console.log(
-          data?.data?.activities?.filter((act: Activity) => act.id !== "custom")
+          data?.data?.activities?.filter(
+            (act: Activity) => act.id !== "custom",
+          ),
         );
       }
     };
@@ -34,12 +33,11 @@ const Activity = () => {
   }, []);
 
   return activities.length > 0 ? (
-    <ul className="list-disc px-6">
+    <ul className="list-none px-6">
       {activities.map((act) => {
         return (
           act.id !== "custom" && (
             <li key={act.id}>
-              <p className="font-semibold">{act.name}</p>
               <p>
                 {act.name === "Spotify"
                   ? act.state.split(";").join(", ")
@@ -52,7 +50,7 @@ const Activity = () => {
       })}
     </ul>
   ) : (
-    <p>Offline...</p>
+    <p>Nothing ¯\_(ツ)_/¯</p>
   );
 };
 

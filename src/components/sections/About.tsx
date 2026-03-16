@@ -34,7 +34,7 @@ const About: React.FC = () => {
 
             <div>
               <h3 className="text-2xl font-bold text-gray-800">
-                What I'm up to right now:
+                What I'm listening to right now:
               </h3>
               <Activity />
             </div>

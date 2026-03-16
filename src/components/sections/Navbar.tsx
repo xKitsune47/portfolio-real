@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NavLink from "../NavLink";
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const navRef = React.useRef<HTMLElement>(null);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((prev) => !prev);
@@ -10,8 +11,21 @@ const Navbar: React.FC = () => {
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    const handleClickOutside = (e: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        closeMobileMenu();
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isMobileMenuOpen]);
+
   return (
-    <nav className="bg-gray-800/90 backdrop-blur-md shadow-lg sticky top-0 z-50">
+    <nav
+      ref={navRef}
+      className="bg-gray-800/90 backdrop-blur-md shadow-lg sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
@@ -32,7 +46,7 @@ const Navbar: React.FC = () => {
             }
             aria-expanded={isMobileMenuOpen}
             onClick={toggleMobileMenu}
-            className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-200 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-800 transition-colors">
+            className="lg:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-200 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-800 transition-colors">
             <span className="relative block h-5 w-6">
               <span
                 className={`absolute left-0 top-0 block h-0.5 w-6 bg-current transition-transform duration-300 ease-in-out ${
@@ -51,7 +65,7 @@ const Navbar: React.FC = () => {
               />
             </span>
           </button>
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <ul className="ml-10 flex items-baseline space-x-4">
               <NavLink href="#hero">Home</NavLink>
               <NavLink href="#about">About me</NavLink>
@@ -63,7 +77,7 @@ const Navbar: React.FC = () => {
           </div>
         </div>
         <div
-          className={`md:hidden absolute left-0 right-0 top-16 bg-gray-800/95 backdrop-blur-md shadow-lg overflow-hidden transition-all duration-300 ease-in-out ${
+          className={`lg:hidden absolute left-0 right-0 top-16 bg-gray-800/95 backdrop-blur-md shadow-lg overflow-hidden transition-all duration-300 ease-in-out ${
             isMobileMenuOpen ? "max-h-80 opacity-100 py-4" : "max-h-0 opacity-0"
           }`}>
           <ul className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col space-y-2">

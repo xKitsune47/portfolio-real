@@ -17,7 +17,7 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children, onClick }) => {
     <li>
       <button
         onClick={() => scrollToSection(href)}
-        className="px-3 py-2 rounded-md text-sm font-medium text-gray-100 hover:bg-orange-600 hover:text-white transition-colors duration-300 cursor-pointer">
+        className="px-3 py-2 rounded-md text-sm font-medium text-gray-100 hover:bg-orange-600 hover:text-white transition-colors duration-300 cursor-pointer items">
         {children}
       </button>
     </li>
