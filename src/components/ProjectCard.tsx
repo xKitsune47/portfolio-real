@@ -44,7 +44,7 @@ const ProjectCard: React.FC<Project> = ({
           )}
           {siteUrl && (
             <a
-              href={codeUrl}
+              href={siteUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 text-center border-2 border-orange-500 text-orange-500 py-2 px-4 rounded-lg hover:bg-orange-500 hover:text-white transition-colors duration-300 font-medium">
