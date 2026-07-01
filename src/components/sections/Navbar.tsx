@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import NavLink from "../NavLink";
+import domain from "../../helpers/domainUrl";
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
@@ -34,7 +35,7 @@ const Navbar: React.FC = () => {
               className="flex-shrink-0 text-orange-500 font-bold text-xl flex items-center">
               {" "}
               <span className="mr-2">🦊</span>
-              kitsune-dev.me
+              {domain}
             </a>
           </div>
           <button

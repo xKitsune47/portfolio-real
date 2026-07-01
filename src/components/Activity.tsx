@@ -12,6 +12,7 @@ interface Activity {
 
 const Activity = () => {
   const [activities, setActivities] = useState<Activity[]>([]);
+  const [albumImage, setAlbumImage] = useState<string>("");
 
   useEffect(() => {
     const get = async () => {
@@ -22,10 +23,11 @@ const Activity = () => {
 
       if (data) {
         setActivities(
-          data?.data?.activities?.filter(
-            (act: Activity) => act.id !== "custom",
+          data?.data?.activities?.filter((act: Activity) =>
+            act.id.includes("spotify"),
           ),
         );
+        setAlbumImage(data?.data?.spotify?.album_art_url);
       }
     };
 
@@ -33,22 +35,23 @@ const Activity = () => {
   }, []);
 
   return activities.length > 0 ? (
-    <ul className="list-none px-6">
+    <p className="pt-2">
       {activities.map((act) => {
         return (
           act.id !== "custom" && (
-            <li key={act.id}>
-              <p>
-                {act.name === "Spotify"
-                  ? act.state.split(";").join(", ")
-                  : act.state || "Secret stuff"}
+            <div className="flex flex-row gap-8 max-md:justify-center">
+              <img src={albumImage} className="h-24" />
+              <p key={act.id} className="flex flex-col justify-center">
+                <span className="text-sm">
+                  {act.state.split(";").join(", ")}
+                </span>
+                <span className="font-semibold">"{act.details}"</span>
               </p>
-              {act.name === "Spotify" && <p>"{act.details}"</p>}
-            </li>
+            </div>
           )
         );
       })}
-    </ul>
+    </p>
   ) : (
     <p>Nothing ¯\_(ツ)_/¯</p>
   );

@@ -1,1 +1,1 @@
-https://kitsune-dev.me
+https://ninefox.dev

@@ -1,6 +1,6 @@
 import React from "react";
 import Divider from "../Divider";
-import me from "../../../public/assets/fcybruch.png";
+import me from "/assets/fcybruch.png";
 import Activity from "../Activity";
 
 const About: React.FC = () => {

@@ -37,6 +37,14 @@ const skillsData: Skill[] = [
     name: "Mendix",
     image: "/assets/skills/Mendix.png",
   },
+  {
+    name: "C#",
+    image: "/assets/skills/csharp.png",
+  },
+  {
+    name: "Unity",
+    image: "/assets/skills/unity.png",
+  },
 ];
 
 const Skills: React.FC = () => {

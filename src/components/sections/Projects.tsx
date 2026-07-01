@@ -1,6 +1,7 @@
 import React from "react";
 import ProjectCard from "../ProjectCard";
 import Divider from "../Divider.js";
+import domain from "../../helpers/domainUrl.js";
 
 export interface Project {
   id: number;
@@ -43,7 +44,7 @@ const projectData: Project[] = [
       "Fullstack app made with Next.js, TailwindCSS, MongoDB and NextAuth. The app is a linktree clone, has Google and Github authentication provided by NextAuth. You can preview available fonts and color schemes for the links page before registering, add a profile picture and a description for your profile.",
     tags: ["Next.js", "TypeScript", "TailwindCSS", "MongoDB"],
     codeUrl: "https://github.com/xKitsune47/carrd-clone",
-    siteUrl: "https://links.kitsune-dev.me",
+    siteUrl: `https://links.${domain}`,
     image: "",
     role: "Sole developer",
   },
