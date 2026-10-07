@@ -1,72 +1,46 @@
 import React from "react";
-import Divider from "../Divider.js";
+import Section from "../Section";
 
-interface Skill {
-  name: string;
-  image: string;
+interface SkillGroup {
+  label: string;
+  skills: string[];
 }
 
-const skillsData: Skill[] = [
-  { name: "HTML5", image: "/assets/skills/html.png" },
-  { name: "CSS3", image: "/assets/skills/css.png" },
+const skillsData: SkillGroup[] = [
   {
-    name: "TailwindCSS",
-    image: "/assets/skills/tailwind.svg",
+    label: "Web",
+    skills: [
+      "HTML5",
+      "CSS3",
+      "TailwindCSS",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Redux",
+    ],
   },
-  { name: "JavaScript", image: "/assets/skills/JavaScript-logo.png" },
-  { name: "TypeScript", image: "/assets/skills/ts-logo-512.png" },
-  {
-    name: "React",
-    image: "/assets/skills/react.png",
-  },
-  { name: "Next.js", image: "/assets/skills/nextjs.svg" },
-  { name: "Git", image: "/assets/skills/git.svg" },
-  {
-    name: "Figma",
-    image: "/assets/skills/figma.png",
-  },
-  {
-    name: "Python",
-    image: "/assets/skills/python.png",
-  },
-  {
-    name: "Redux",
-    image: "/assets/skills/redux.svg",
-  },
-  {
-    name: "Mendix",
-    image: "/assets/skills/Mendix.png",
-  },
-  {
-    name: "C#",
-    image: "/assets/skills/csharp.png",
-  },
-  {
-    name: "Unity",
-    image: "/assets/skills/unity.png",
-  },
+  { label: "Languages & engines", skills: ["Python", "C#", "Unity"] },
+  { label: "Tools", skills: ["Git", "Figma", "Mendix"] },
+  { label: "OSs", skills: ["Windows", "Linux"] },
 ];
 
 const Skills: React.FC = () => {
   return (
-    <section id="skills" className="py-16 sm:py-24 bg-slate-100">
-      <div className="container mx-auto px-6 max-w-6xl">
-        <h2 className="text-4xl font-bold text-center mb-4 text-gray-800">
-          Skills
-        </h2>
-        <Divider />
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-9 gap-6">
-          {skillsData.map((skill) => (
-            <img
-              src={skill.image}
-              className="w-12 m-auto"
-              alt={skill.name}
-              key={skill.name}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
+    <Section id="skills" title="Skills" className="py-12 lg:py-16">
+      <dl className="divide-y divide-ink/15">
+        {skillsData.map((group) => (
+          <div
+            key={group.label}
+            className="grid gap-x-8 gap-y-1 py-4 first:pt-0 last:pb-0 md:grid-cols-9">
+            <dt className="text-muted md:col-span-3">{group.label}</dt>
+            <dd className="text-lg font-medium md:col-span-6">
+              {group.skills.join(", ")}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </Section>
   );
 };
 

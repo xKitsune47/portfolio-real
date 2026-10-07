@@ -1,5 +1,5 @@
 import React from "react";
-import Divider from "../Divider";
+import Section from "../Section";
 
 interface Award {
   id: number;
@@ -21,36 +21,25 @@ const awardsData: Award[] = [
 
 const HonorsAndAwards: React.FC = () => {
   return (
-    <section id="honors-awards" className="py-16 sm:py-24 bg-white">
-      <div className="container mx-auto px-6 max-w-5xl">
-        <h2 className="text-4xl font-bold text-center mb-4 text-gray-800">
-          Honors & Awards
-        </h2>
-        <Divider />
-        <div className="space-y-6">
-          {awardsData.map((award) => (
-            <div
-              key={award.id}
-              className="bg-slate-50 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-orange-500">
-              <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-3">
-                <h3 className="text-2xl font-semibold text-gray-800">
-                  {award.title}
-                </h3>
-                <span className="text-sm font-medium text-orange-600 bg-orange-100 px-3 py-1 rounded-full w-fit">
-                  {award.date}
-                </span>
-              </div>
-              <p className="text-lg font-medium text-gray-600 mb-3">
-                {award.issuer}
-              </p>
-              <p className="text-gray-700/90 leading-relaxed">
-                {award.description}
-              </p>
+    <Section
+      id="honors-awards"
+      title="Honors & Awards"
+      className="py-12 lg:py-16">
+      <div className="divide-y divide-ink/15">
+        {awardsData.map((award) => (
+          <article
+            key={award.id}
+            className="grid gap-x-8 gap-y-2 py-6 first:pt-0 last:pb-0 md:grid-cols-9">
+            <p className="text-muted md:col-span-3">{award.date}</p>
+            <div className="md:col-span-6">
+              <h3 className="text-xl leading-tight font-bold">{award.title}</h3>
+              <p className="mt-1 text-muted">{award.issuer}</p>
+              <p className="mt-3 leading-relaxed">{award.description}</p>
             </div>
-          ))}
-        </div>
+          </article>
+        ))}
       </div>
-    </section>
+    </Section>
   );
 };
 

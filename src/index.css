@@ -1,11 +1,25 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
+
+@theme {
+  --font-sans: "Archivo", ui-sans-serif, system-ui, sans-serif;
+
+  --color-paper: #fff;
+  --color-ink: oklch(20% 0.02 260);
+  --color-fox: oklch(70% 0.19 45);
+  --color-fox-deep: oklch(52% 0.17 40);
+  --color-foxfire: oklch(82% 0.1 205);
+  --color-muted: oklch(45% 0.02 260);
+}
 
 @layer base {
   html {
-    @apply scroll-smooth;
+    @apply motion-safe:scroll-smooth;
   }
   body {
-    font-family: "Montserrat", sans-serif;
+    @apply bg-paper text-ink;
+  }
+  :focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
   }
 }

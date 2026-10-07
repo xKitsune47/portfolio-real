@@ -26,13 +26,13 @@ const Navbar: React.FC = () => {
   return (
     <nav
       ref={navRef}
-      className="bg-gray-800/90 backdrop-blur-md shadow-lg sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      className="bg-ink sticky top-0 z-50">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 relative">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <a
               href="#hero"
-              className="flex-shrink-0 text-orange-500 font-bold text-xl flex items-center">
+              className="flex-shrink-0 text-fox font-extrabold font-stretch-expanded text-lg flex items-center">
               {" "}
               <span className="mr-2">🦊</span>
               {domain}
@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
             }
             aria-expanded={isMobileMenuOpen}
             onClick={toggleMobileMenu}
-            className="lg:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-200 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-800 transition-colors">
+            className="lg:hidden inline-flex items-center justify-center rounded-xs p-2 text-paper hover:text-fox transition-colors cursor-pointer">
             <span className="relative block h-5 w-6">
               <span
                 className={`absolute left-0 top-0 block h-0.5 w-6 bg-current transition-transform duration-300 ease-in-out ${
@@ -67,7 +67,7 @@ const Navbar: React.FC = () => {
             </span>
           </button>
           <div className="hidden lg:block">
-            <ul className="ml-10 flex items-baseline space-x-4">
+            <ul className="ml-10 flex items-baseline space-x-7">
               <NavLink href="#hero">Home</NavLink>
               <NavLink href="#about">About me</NavLink>
               <NavLink href="#skills">Skills</NavLink>
@@ -78,10 +78,10 @@ const Navbar: React.FC = () => {
           </div>
         </div>
         <div
-          className={`lg:hidden absolute left-0 right-0 top-16 bg-gray-800/95 backdrop-blur-md shadow-lg overflow-hidden transition-all duration-300 ease-in-out ${
-            isMobileMenuOpen ? "max-h-80 opacity-100 py-4" : "max-h-0 opacity-0"
+          className={`lg:hidden absolute left-0 right-0 top-16 bg-ink overflow-hidden transition-[max-height,opacity,padding,visibility] duration-300 ease-in-out ${
+            isMobileMenuOpen ? "max-h-80 opacity-100 py-4" : "invisible max-h-0 opacity-0"
           }`}>
-          <ul className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col space-y-2">
+          <ul className="max-w-6xl mx-auto px-5 sm:px-8 flex flex-col items-start space-y-2">
             <NavLink href="#hero" onClick={closeMobileMenu}>
               Home
             </NavLink>

@@ -1,36 +1,52 @@
+import { useState } from "react";
+
 interface ContactLinkProps {
   href?: string;
+  label: string;
   text: string;
-  bgColorClass: string;
-  hoverBgColorClass?: string;
-  textColorClass?: string;
-  image?: string;
 }
 
-const ContactLink: React.FC<ContactLinkProps> = ({
-  href,
-  text,
-  bgColorClass,
-  image,
-}) => {
+const valueClass =
+  "inline-block py-1 text-xl font-semibold decoration-foxfire decoration-2 underline-offset-4 hover:text-foxfire hover:underline sm:text-2xl";
+
+const ContactLink: React.FC<ContactLinkProps> = ({ href, label, text }) => {
+  const [copied, setCopied] = useState(false);
+
+  // contacts without a link (Discord) copy the handle instead
+  const copyText = async () => {
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch {
+      return;
+    }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
-    <a
-      href={href}
-      target={href?.startsWith("mailto:") ? "_self" : "_blank"}
-      rel="noopener noreferrer"
-      className={`flex items-center justify-center w-full md:w-auto text-white font-medium py-3 px-6 rounded-lg transition duration-300 ${bgColorClass}  shadow-md hover:shadow-lg transform hover:-translate-y-0.5`}>
-      {image && (
-        <>
-          <img
-            src={image}
-            alt={`${text}-logo`}
-            className="w-6 mr-2"
-            loading="lazy"
-          />
-        </>
-      )}
-      {text}
-    </a>
+    <li className="grid gap-x-8 py-3 md:grid-cols-9 md:items-baseline">
+      <span className="text-paper/70 md:col-span-3">{label}</span>
+      <span className="md:col-span-6">
+        {href ? (
+          <a
+            href={href}
+            target={href.startsWith("mailto:") ? "_self" : "_blank"}
+            rel="noopener noreferrer"
+            className={valueClass}>
+            {text}
+          </a>
+        ) : (
+          <button onClick={copyText} className={`${valueClass} cursor-pointer`}>
+            {text}
+            <span
+              aria-live="polite"
+              className="ml-3 text-sm font-medium text-paper/70">
+              {copied ? "Copied" : "Copy"}
+            </span>
+          </button>
+        )}
+      </span>
+    </li>
   );
 };
 

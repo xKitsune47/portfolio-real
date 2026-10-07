@@ -1,31 +1,31 @@
 import React from "react";
-import ProjectCard from "../ProjectCard";
-import Divider from "../Divider.js";
+import ProjectRow from "../ProjectRow";
+import Section from "../Section";
 import domain from "../../helpers/domainUrl.js";
 
 export interface Project {
   id: number;
   title: string;
   description: string;
-  imageUrl?: string;
   tags: string[];
-  liveUrl?: string;
   codeUrl?: string;
   siteUrl?: string;
   image?: string;
   role: string;
+  featured?: boolean;
 }
 
 const projectData: Project[] = [
   {
-    id: 1,
-    title: "Packt",
+    id: 7,
+    title: "Resilient Mesh",
     description:
-      "Aggregator app with chat, calendar, expense tracking (with export to PDF functionality) and documents sharing for managing your trips. I was the frontend dev responsible for creating UI and lead developer for managing app's states and API connections",
-    tags: ["React Native", "JavaScript", "Redux", "CSS"],
-    codeUrl: "",
+      "Developed an offline peer-to-peer chat app for Android during HackYeah 2026 (Defence category), where every phone acts as a Bluetooth Low Energy mesh node relaying messages over multiple hops. Built with React Native, Expo and TypeScript, with a custom Kotlin module for the BLE Peripheral role. Implemented mesh routing, Ed25519-signed packets, end-to-end encrypted messaging and signed emergency alerts from verified authority accounts, reaching a range of around 150 meters",
+    tags: ["React Native", "Expo", "Typescript"],
+    codeUrl: "https://github.com/xKitsune47/resilient-mesh-poc",
     image: "",
-    role: "Frontend developer",
+    role: "Sole developer",
+    featured: true,
   },
   {
     id: 2,
@@ -36,6 +36,7 @@ const projectData: Project[] = [
     codeUrl: "https://github.com/xKitsune47/BEng-thesis",
     image: "",
     role: "Sole developer",
+    featured: true,
   },
   {
     id: 3,
@@ -47,15 +48,18 @@ const projectData: Project[] = [
     siteUrl: `https://links.${domain}`,
     image: "",
     role: "Sole developer",
+    featured: true,
   },
   {
-    id: 4,
-    title: "Portfolio",
-    description: "Portfolio site you're currently browsing through",
-    tags: ["React", "TypeScript", "TailwindCSS"],
-    codeUrl: "https://github.com/xKitsune47/portfolio-real",
+    id: 1,
+    title: "Packt",
+    description:
+      "Aggregator app with chat, calendar, expense tracking (with export to PDF functionality) and documents sharing for managing your trips. I was the frontend dev responsible for creating UI and lead developer for managing app's states and API connections",
+    tags: ["React Native", "JavaScript", "Redux", "CSS"],
+    codeUrl: "",
     image: "",
-    role: "Sole developer",
+    role: "Frontend developer",
+    featured: true,
   },
   {
     id: 5,
@@ -85,23 +89,33 @@ const projectData: Project[] = [
     image: "",
     role: "Sole developer",
   },
+  {
+    id: 4,
+    title: "Portfolio",
+    description: "Portfolio site you're currently browsing through",
+    tags: ["React", "TypeScript", "TailwindCSS"],
+    codeUrl: "https://github.com/xKitsune47/portfolio-real",
+    image: "",
+    role: "Sole developer",
+  },
 ];
 
 const Projects: React.FC = () => {
+  const featured = projectData.filter((project) => project.featured);
+  const other = projectData.filter((project) => !project.featured);
+
   return (
-    <section id="projects" className="py-16 sm:py-24 bg-white">
-      <div className="container mx-auto px-6 max-w-7xl">
-        <h2 className="text-4xl font-bold text-center mb-4 text-gray-800">
-          Projects
-        </h2>
-        <Divider />
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projectData.map((project) => (
-            <ProjectCard key={project.id} {...project} />
-          ))}
-        </div>
-      </div>
-    </section>
+    <Section id="projects" title="Projects" className="py-16 lg:py-28">
+      {featured.map((project) => (
+        <ProjectRow key={project.id} {...project} />
+      ))}
+      <h3 className="mt-16 mb-6 text-lg font-extrabold font-stretch-expanded">
+        Other projects
+      </h3>
+      {other.map((project) => (
+        <ProjectRow key={project.id} {...project} />
+      ))}
+    </Section>
   );
 };
 

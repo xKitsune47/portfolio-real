@@ -1,3 +1,5 @@
+import scrollToSection from "../helpers/scrollToSection";
+
 interface NavLinkProps {
   href: string;
   children: React.ReactNode;
@@ -5,19 +7,16 @@ interface NavLinkProps {
 }
 
 const NavLink: React.FC<NavLinkProps> = ({ href, children, onClick }) => {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id.substring(1));
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+  const handleClick = () => {
+    scrollToSection(href.substring(1));
     onClick?.();
   };
 
   return (
     <li>
       <button
-        onClick={() => scrollToSection(href)}
-        className="px-3 py-2 rounded-md text-sm font-medium text-gray-100 hover:bg-orange-600 hover:text-white transition-colors duration-300 cursor-pointer items">
+        onClick={handleClick}
+        className="py-2 text-sm font-medium text-paper decoration-fox decoration-2 underline-offset-8 hover:underline cursor-pointer">
         {children}
       </button>
     </li>
