@@ -28,6 +28,26 @@ const projectData: Project[] = [
     featured: true,
   },
   {
+    id: 8,
+    title: "JEV Sentiment Analyser",
+    description:
+      "Fullstack web app that analyses the sentiment of user comments with a small language model (Qwen3-0.6B) running locally on CPU, using the JEV-CPU / SemIf method of reading answers from model logits. Offensive comments are rejected with a banned words list and a model-based hate speech check. Analysed comments are saved in a MongoDB database, where other users can browse and search them and vote on whether the model read their mood correctly. Includes rate limiting, PL/EN versions and light/dark themes. Fully containerized with Docker Compose. Backend built with the help of AI",
+    tags: [
+      "React",
+      "TypeScript",
+      "TailwindCSS",
+      "FastAPI",
+      "PyTorch",
+      "MongoDB",
+      "Docker",
+    ],
+    codeUrl: "https://github.com/xKitsune47/jev-sentiment-analyser",
+    siteUrl: `https://sentiment.${domain}`,
+    image: "",
+    role: "Sole developer",
+    featured: true,
+  },
+  {
     id: 2,
     title: "Bachelor's thesis",
     description:
@@ -36,7 +56,6 @@ const projectData: Project[] = [
     codeUrl: "https://github.com/xKitsune47/BEng-thesis",
     image: "",
     role: "Sole developer",
-    featured: true,
   },
   {
     id: 3,
